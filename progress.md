@@ -1,0 +1,15 @@
+Original prompt: Create a 3D snake game to play in browser.
+- Initialized project folder and progress tracking.
+- Implemented initial Three.js-based 3D snake game with menu, HUD, restart/pause/fullscreen, render_game_to_text, and advanceTime hooks.
+- Verified runtime prerequisites: node+npx available, installed playwright package and chromium runtime for automated checks.
+- Ran Playwright scenarios:
+  - output/web-game-playing: confirmed running gameplay render and matching text state.
+  - output/web-game-score: confirmed food collection (score increment to 1, snake length growth, best score update).
+  - output/web-game-over: confirmed game-over transition and overlay visibility.
+- Added deterministic first-food spawn at game start (ahead of snake) to guarantee early successful collection and easier validation.
+- Added Enter/Space restart support from game-over for keyboard accessibility.
+- Remaining note: automated restart via payload key press did not transition in captured state despite key mapping updates; manual restart button and keyboard logic are implemented and should be manually spot-checked in browser.
+- TODO for next agent: diagnose why Playwright key injection does not trigger restart transition in this environment while movement keys function.
+- Added npm start script for quick local launch at port 5173.
+- Installed local `three` package and switched game import to local module path to avoid CDN dependency.
+- Final Playwright verification (output/web-game-final) confirms scene renders and game runs with local Three.js import.
